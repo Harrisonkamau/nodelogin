@@ -70,6 +70,18 @@ app.use(function(req, res, next){
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
     next();
-})
+});
+
+// map routes
+app.use('/', routes);
+app.use('/users', users);
+
+// set default port
+app.set('port', (process.env.PORT || 3000));
+
+// start server
+app.listen(app.get('port', ()=>{
+    console.log("Server running on port "+app.get('port'));
+}))
 
 
