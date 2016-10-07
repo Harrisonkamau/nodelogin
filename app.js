@@ -18,7 +18,7 @@ var db = mongoose.connection;
 
 // routes
 var routes = require('./routes/index');
-var user = require('./routes/users');
+var users = require('./routes/users');
 
 // init app
 var app = express();
