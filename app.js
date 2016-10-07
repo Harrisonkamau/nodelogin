@@ -18,7 +18,7 @@ var db = mongoose.connection;
 
 // routes
 var routes = require('./routes/index');
-var user = require('./routes/user');
+var user = require('./routes/users');
 
 // init app
 var app = express();
@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 // set static folder
-app.use(express.static(path.join(___dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // express session
 app.use(session({
