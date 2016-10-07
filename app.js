@@ -43,6 +43,11 @@ app.use(session({
     resave: true
 }));
 
+
+// Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Express validator
 app.use(expressValidator({
     errorFormatter: function(param, msg, value){
