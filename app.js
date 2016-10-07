@@ -16,3 +16,25 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/nodelogin');
 var db = mongoose.connection;
 
+// routes
+var routes = require('./routes/index');
+var user = require('./routes/user');
+
+// init app
+var app = express();
+
+// view Engine
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({defaultLayout: 'layout'}));
+app.set('view engine', 'handlebars');
+
+//Body Parser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
+
+// set static folder
+app.use(express.static(path.join(___dirname, 'public')));
+
+
+
