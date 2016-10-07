@@ -82,11 +82,11 @@ app.use('/', routes);
 app.use('/users', users);
 
 // set default port
-app.set('port', (process.env.PORT || 3000));
+var port = process.env.PORT || 3000;
 
 // start server
-app.listen(app.get('port', ()=>{
-    console.log("Server running on port "+app.get('port'));
-}))
+app.listen(port, ()=>{
+    console.log("Server running on port "+port);
+});
 
 
