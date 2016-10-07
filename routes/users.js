@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 // Register route
 router.get('/register', function(req, res){
@@ -54,5 +56,12 @@ router.post('/register', function(req, res){
 
 });
 
+// authenticate login using passport
+app.post('/login',
+  passport.authenticate('local'),
+  function(req, res) {
+    // `req.user` contains the authenticated user.
+    res.redirect('/users/' + req.user.username);
+  });
 
 module.exports = router;
