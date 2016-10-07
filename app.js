@@ -36,5 +36,12 @@ app.use(cookieParser());
 // set static folder
 app.use(express.static(path.join(___dirname, 'public')));
 
+// express session
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}));
+
 
 
