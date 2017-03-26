@@ -2,8 +2,9 @@ var Numbers = require('../models/numbers.js');
 var querystring = require('querystring');
 var https       = require('https');
 var path = require('path');
-var username = 'psy';
-var apikey   = 'f9b5445c5ff69131747344fa646e957a4492ec9ee5caac037edd0b59d4474953';
+var config = require('../config/config');
+var username = config.API_USERNAME;
+var apikey   = config.API_KEY;
 
 // import coupon code and bluebird - Promises library
 var couponCode = require('coupon-code');
