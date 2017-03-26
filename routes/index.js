@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var numbers = require('../controllers/numbers.js'); 
-// var app = express();
 
 // Get homepage
 router.get('/', ensureAuthenticated, function(req, res){
@@ -11,18 +10,6 @@ router.get('/', ensureAuthenticated, function(req, res){
 // load the coupon page
 router.get('/coupon', ensureAuthenticated, function(req, res){
 	res.render('coupon');
-})
-
-// GET todos Page
-router.get('/todos', ensureAuthenticated, function(req, res){
-	res.render('todo');
-})
-
-// POST todos Page
-router.post('/todos', ensureAuthenticated, function(req, res){
-	res.render('todo');
-
-  // to integrate with back-end soon
 })
 
 // add the invite code
