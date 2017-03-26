@@ -11,6 +11,8 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var config = require('./config/config');
+var handlebars = require('handlebars');
+handlebars.registerHelper('year', require('helper-year'));
 
 // use global promise
 mongoose.Promise = global.Promise;
