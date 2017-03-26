@@ -21,6 +21,8 @@ router.get('/todos', ensureAuthenticated, function(req, res){
 // POST todos Page
 router.post('/todos', ensureAuthenticated, function(req, res){
 	res.render('todo');
+
+  // to integrate with back-end soon
 })
 
 // add the invite code
