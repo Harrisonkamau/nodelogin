@@ -13,6 +13,16 @@ router.get('/coupon', ensureAuthenticated, function(req, res){
 	res.render('coupon');
 })
 
+// GET todos Page
+router.get('/todos', ensureAuthenticated, function(req, res){
+	res.render('todo');
+})
+
+// POST todos Page
+router.post('/todos', ensureAuthenticated, function(req, res){
+	res.render('todo');
+})
+
 // add the invite code
 router.post('/coupon', ensureAuthenticated, numbers.add);
 
