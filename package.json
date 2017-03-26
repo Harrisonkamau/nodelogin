@@ -21,6 +21,8 @@
     "express-messages": "^1.0.1",
     "express-session": "^1.14.1",
     "express-validator": "^2.20.10",
+    "handlebars": "^4.0.6",
+    "helper-year": "^0.1.0",
     "mongodb": "^2.2.10",
     "mongoose": "^4.6.3",
     "passport": "^0.3.2",
