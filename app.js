@@ -10,10 +10,14 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var config = require('./config/config');
 
 // use global promise
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/loginapp');
+mongoose.connect(config.database, (err)=> {
+  if(err) throw err;
+  console.log(`connected to ${config.database}`);
+});
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
@@ -81,7 +85,7 @@ app.use('/', routes);
 app.use('/users', users);
 
 // Set Port
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (config.port || 3000));
 
 // start server
 app.listen(app.get('port'), function(){
