@@ -101,4 +101,19 @@ router.get('/logout', function(req, res){
 	res.redirect('/users/login');
 });
 
+
+// Todos
+// GET todos Page
+router.get('/todos',function(req, res){
+  console.log(req.body);
+  	res.render('todo');
+})
+
+// POST 
+router.post('/todos', function(req, res){
+	res.render('todo');
+
+  // to integrate with back-end soon
+})
+
 module.exports = router;
