@@ -1,16 +1,10 @@
-<h2 class="page-header">Create Todos Here</h2>
-<form method="post" action="/users/todos">
-  <div class="form-group">
-    <label>New Todo</label>
-    <input type="text" class="form-control" data-bind="value: newTodo"name="todo" placeholder="Todo">
-  </div>
-  <button type="submit" data-bind="click: addTodo"class="btn btn-success">Submit</button>
-</form>
+<h2 class="page-header">My Todos</h2>
 <hr>
-Todos: <span class="badge" data-bind="text: todos().length"> </span>
-<ul data-bind="foreach: todos">
-  <li data-bind="text: $data"></li>
-</ul>
+Todos:
+<li>{{todo}}</li>
+
+<hr>
+<a href="/users/todos/new"><button class="btn btn-success">New Todo</button></a>
 
 <script src="../js/knockout-3.4.2.js"></script>
 <script src="../js/todoViewModel.js"></script>
