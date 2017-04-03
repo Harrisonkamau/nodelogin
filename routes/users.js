@@ -3,6 +3,13 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
+var Todo = require('../models/todo');
+
+/*
+=============================================
+      User Routes
+=============================================
+*/
 
 // Register route
 router.get('/register', function(req, res){
@@ -101,19 +108,40 @@ router.get('/logout', function(req, res){
 	res.redirect('/users/login');
 });
 
+/*
+=============================================
+      Todos Routes
+=============================================
+*/
 
-// Todos
 // GET todos Page
 router.get('/todos',function(req, res){
-  console.log(req.body);
-  	res.render('todo');
+  // Todo.find({title: 'hello'}, (err, todos) => {
+  //   if(err) throw err;
+  //   res.render('todo');
+  // });
+  res.render('todo');
 })
 
+// Create new Todo
+router.get('/todos/new', (req, res) => {
+  res.render('newtodo');
+})
 // POST 
-router.post('/todos', function(req, res){
-	res.render('todo');
+router.post('/todos', function(req, res){ 
+  var todoTitle = req.body.newTodo;
+  var todo = new Todo({
+    title: todoTitle
+  });
 
   // to integrate with back-end soon
+  // Todo.create(todo, (err, todos) => {
+  //   if(err) throw err;
+
+  //   req.flash('success_msg', 'Todo successfully created!');
+  //   res.redirect('/users/todos');
+  // })
+
 })
 
 module.exports = router;
