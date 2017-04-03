@@ -9,6 +9,7 @@
   "author": "Harrison Kamau",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.3.0",
     "bcryptjs": "^2.3.0",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
@@ -23,8 +24,8 @@
     "express-validator": "^2.20.10",
     "handlebars": "^4.0.6",
     "helper-year": "^0.1.0",
-    "mongodb": "^2.2.10",
     "mongoose": "^4.6.3",
+    "morgan": "^1.8.1",
     "passport": "^0.3.2",
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0"
