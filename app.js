@@ -10,6 +10,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var morgan = require('morgan')
 var config = require('./config/config');
 var handlebars = require('handlebars');
 handlebars.registerHelper('year', require('helper-year'));
@@ -82,7 +83,10 @@ app.use(function (req, res, next) {
   next();
 });
 
+// Log routes
+app.use(morgan('dev'))
 
+// Service routes
 app.use('/', routes);
 app.use('/users', users);
 
@@ -93,3 +97,7 @@ app.set('port', (config.port || 3000));
 app.listen(app.get('port'), function(){
 	console.log('Server started on port '+app.get('port'));
 });
+
+
+// modules for exports
+module.exports = db;
